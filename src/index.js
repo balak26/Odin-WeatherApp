@@ -32,7 +32,7 @@ function ui(date, temp, address, conditions, windspeed, humidity, precipprob) {
   const content = document.createElement("div");
   content.classList.add("content");
   const contentH2 = document.createElement("h2");
-  contentH2.innerHTML = formattedTemp + "°C";
+  contentH2.innerHTML = formattedTemp + "°F";
   content.appendChild(contentH2);
   const contentH3 = document.createElement("h3");
   contentH3.innerHTML = address;
@@ -71,6 +71,8 @@ async function getWeather(e) {
   try {
     const res = await fetch(url, { mode: "cors" });
     const weather = await res.json();
+    console.log(weather);
+
     const { currentConditions, days, address } = weather;
     const { windspeed, temp, humidity, conditions, precipprob } =
       currentConditions;
