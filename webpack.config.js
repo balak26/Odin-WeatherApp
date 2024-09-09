@@ -9,6 +9,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
+  devServer: {
+    watchFiles: ["./src/template.html"],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
